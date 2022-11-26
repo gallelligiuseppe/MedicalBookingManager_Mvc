@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<display-name>MedicalBookingManager</display-name>
+	
+	<welcome-file-list>
+		<welcome-file>logAfter</welcome-file>
+	</welcome-file-list>
+	
+	<context-param>
+		<param-name>defaultHtmlEscape</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>
+			org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+		</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<display-name>ConfigListener</display-name>
+		<listener-class>it.mbm.config.ConfigListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>SpringDispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>
+				org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>it.mbm</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SpringDispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<env-entry>
+		<env-entry-name>configFilePath</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>./appl_conf/configFiles/</env-entry-value>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>configFile</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>ini.properties</env-entry-value>
+	</env-entry>
+	
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/login.jsp</form-login-page>
+			<form-error-page>/login.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+	<security-constraint>
+	    <web-resource-collection>
+	        <web-resource-name>All</web-resource-name>
+	        <url-pattern>/resources/css/*</url-pattern>
+	        <url-pattern>/resources/js/*</url-pattern>
+	        <url-pattern>/resources/img/*</url-pattern>
+	        <url-pattern>/resources/fonts/*</url-pattern>
+	        <url-pattern>/resources/*</url-pattern>
+	    </web-resource-collection>
+	    <!-- OMIT auth-constraint -->
+	</security-constraint>	
+	<security-constraint>
+		<display-name>AllAuthenticated</display-name>
+		<web-resource-collection>
+			<web-resource-name>All</web-resource-name>
+			  <url-pattern>/login</url-pattern>
+			  <url-pattern>*.jsp</url-pattern>
+			  <url-pattern>/*</url-pattern>
+		      <http-method>GET</http-method>
+		      <http-method>POST</http-method>
+		      <http-method>OPTIONS</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>AllAuthenticated</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<security-role>
+		<role-name>AllAuthenticated</role-name>
+	</security-role> 
+</web-app>
