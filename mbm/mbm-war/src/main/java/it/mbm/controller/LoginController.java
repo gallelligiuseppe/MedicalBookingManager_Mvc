@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
 
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public String getLogin(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+	public String getLogin(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException,Exception {
 		
 		//LoggedUser loggedUser = (LoggedUser) request.getSession().getAttribute(CommonConstants.SESSION_ATTR_LOGGED_USER);
 		
