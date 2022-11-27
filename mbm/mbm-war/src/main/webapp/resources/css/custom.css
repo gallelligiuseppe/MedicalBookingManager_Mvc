@@ -1,20 +1,162 @@
-@charset "UTF-8";
+/* CSS specifico di ogni applicazione (l'unico da modificare) */
 
-.paragraph {
-    font-size: 50px;
-    line-height: 62px;
-    font-family: 'Amatic SC', cursive;
+/* Extra small devices (portrait phones, less than 576px) */
+/* No media query for 'xs' since this is the default */
+
+html {
+	position: relative;
+	min-height: 100%;
+	background-color: transparent !important; 
 }
 
-font-family: 'Amatic SC', cursive;
+.sticky-body {
+	margin-bottom: 235px;
+}
 
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+
+.sticky-footer {
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 235px;
+}
+
+/* SPINNER */
+#spinner {
+	display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    background-color: #FFFFFF;
+    opacity: 0.7;  /* Opacity for Modern Browsers */
+    filter: alpha(opacity=70);  /* Opacity for IE8 and lower */
+    zoom: 1;  /* Fix for IE7 */
+}
+
+#spinner-notch {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.spacer-100px {
+	height: 100px;
+}
+
+.negative-mb-30 {
+	margin-bottom: -30px;
+}
+
+.mandatory-fields-declaration {
+	text-align: right;
+    border: 0px;
+    font-size: 15px;
+    margin-bottom: 2%;
+    color: #0d5d94;
+}
+
+.dt-btn-download-excel {
+	background-image: url(../img/ms-excel-icon.png);
+    background-repeat: no-repeat;
+    padding-left: 38px;
+}
+
+.dt-btn-download-pdf {
+	background-image: url(../img/pdf-icon.png);
+    background-repeat: no-repeat;
+    padding-left: 38px;
+}
+
+
+.dt-buttons {
+    margin-left: 15px;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.dataTable, .table {
+	font-size: 12px;
+}
+
+.dataTables_filter {
+	margin-top: 10px;
+}
+
+#refreshRichiesteWeb {
+	position: absolute;
+    right: 0px;
+    top: -45px;
+}
+
+.web-request-success {
+	background-color: rgba(212, 237, 218, 1) !important;
+    border-color: #008758;
+}
+
+.web-request-warning {
+	background-color: rgba(255, 243, 205, 1) !important;
+	border-color: #ffeeba;
+}
+
+.web-request-danger {
+	background-color: rgba(248, 215, 218, 1) !important;
+	border-color: #f5c6cb;
+}
+
+.richieste-web-table-wrapper {
+	position: relative;
+	visibility: hidden;
+	height: 350px;
+}
+
+.login-app-version {
+	font-size: 11px;
+	color: #000;
+}
+.login-app-release-info {
+	font-size: 9px;
+	color: #AAA;
+}
+
+.footer-app-release-info {
+	float: right;
+    font-size: 10px;
+}
+
+.small-text-11 {
+	font-size: 11px;
+}
+
+#error-msg {
+	color: #000 !important;
+}
+
+#error-msg a:not(.btn) {
+	color: #c32b00 !important;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	
+}
+
+/* Extra extra large devices (extra large desktops, 1440px and up) */
+@media (min-width: 1440px) {
+	
 }
